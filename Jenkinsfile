@@ -1,6 +1,10 @@
 pipeline {
     agent any
 	
+	environment {
+		DISCORD = 'discordSend description: "Jenkins Pipeline Build", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "Webhook URL"'
+	}
+	
     stages {
         stage('Build') {
             steps {
@@ -61,9 +65,11 @@ pipeline {
 	post {
 		success {
 			echo 'Pipeline completed'
+			${DISCORD}
 		}
 		failure {
 			echo 'Pipeline failed'
+			${DISCORD}
 		}
 	}
 }
