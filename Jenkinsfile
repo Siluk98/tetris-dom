@@ -69,11 +69,13 @@ pipeline {
 		}
 		failure {
 			echo 'Pipeline failed'
+			script {
 			def log = Jenkins.getInstance()
                 .getItemByFullName(env.JOB_NAME)
                 .getBuildByNumber(
                     Integer.parseInt(env.BUILD_NUMBER))
                 .logFile.text
+			}
 			discordSend description: log, footer: "Pipeline failed", result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/881624706472628284/2LgikDidYeYdUA7eBCInyQnvUFzm4FA6TVXux0Nvr1vjl4EzvBbnpcG-FzEvBXXW4tdl"
 		}
 	}
