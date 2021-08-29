@@ -1,3 +1,4 @@
 FROM tetris:latest
 WORKDIR ./tetris-dom
+RUN apt-get install jest
 RUN npm test
