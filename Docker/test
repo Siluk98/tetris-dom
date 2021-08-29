@@ -1,0 +1,3 @@
+FROM tetris:latest
+WORKDIR ./tetris-dom
+RUN npm test
