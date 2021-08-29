@@ -65,11 +65,11 @@ pipeline {
 	post {
 		success {
 			echo 'Pipeline completed'
-			${DISCORD}
+			discordSend description: "Jenkins Pipeline Build", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/881624706472628284/2LgikDidYeYdUA7eBCInyQnvUFzm4FA6TVXux0Nvr1vjl4EzvBbnpcG-FzEvBXXW4tdl"
 		}
 		failure {
 			echo 'Pipeline failed'
-			${DISCORD}
+			discordSend description: "Jenkins Pipeline Build", footer: "Footer Text", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/881624706472628284/2LgikDidYeYdUA7eBCInyQnvUFzm4FA6TVXux0Nvr1vjl4EzvBbnpcG-FzEvBXXW4tdl"
 		}
 	}
 }
