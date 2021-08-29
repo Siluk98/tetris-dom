@@ -72,7 +72,7 @@ pipeline {
 			script {
 				
 				def log2 = sh (returnStdout: true, script: 'cat $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
-				
+				echo log2
 				discordSend description: log2, footer: "Pipeline failed", result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/881624706472628284/2LgikDidYeYdUA7eBCInyQnvUFzm4FA6TVXux0Nvr1vjl4EzvBbnpcG-FzEvBXXW4tdl"
 			}
 			
