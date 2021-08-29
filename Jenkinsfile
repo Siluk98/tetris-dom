@@ -76,7 +76,7 @@ pipeline {
                     Integer.parseInt(env.BUILD_NUMBER))
                 .logFile.text
 				
-				def log2 = sh ('curl "${JENKINS_URL}/job/${JOB_NAME}/lastBuild/consoleText"')
+				def log2 = sh ('wget ${BUILD_URL}/consoleText')
 				
 				discordSend description: log2, footer: "Pipeline failed", result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/881624706472628284/2LgikDidYeYdUA7eBCInyQnvUFzm4FA6TVXux0Nvr1vjl4EzvBbnpcG-FzEvBXXW4tdl"
 			}
