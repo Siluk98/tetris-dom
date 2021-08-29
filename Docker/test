@@ -1,4 +1,5 @@
 FROM tetris:latest
 WORKDIR ./tetris-dom
 RUN npm i --global jest
+RUN npm i
 RUN npm test
