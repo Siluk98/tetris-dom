@@ -69,7 +69,7 @@ pipeline {
 		}
 		failure {
 			echo 'Pipeline failed'
-			sh('sed -i -e "s/[8mha:////4Hdmy49/6rYQlYoaqjWibP0kvhEqXvmihCkWd+aCgbLYAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==//g" $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
+			sh('sed -i -r -e "s/8mha.*?AAAA//g" $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
 			script {
 				
 				def log2 = sh (returnStdout: true, script: 'cat $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
