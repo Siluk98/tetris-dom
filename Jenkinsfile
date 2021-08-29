@@ -69,7 +69,7 @@ pipeline {
 		}
 		failure {
 			echo 'Pipeline failed'
-			sh('sed -i -r -e "s/8mha.*?AAAA//g" $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
+			sh('sed -i -r -e "s/.*?//g" $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
 			script {
 				
 				def log2 = sh (returnStdout: true, script: 'cat $JENKINS_HOME/jobs/$JOB_NAME/builds/$BUILD_NUMBER/log')
