@@ -1,5 +1,5 @@
 #!/bin/bash
-docker container rm ngrok-tetris
+docker container rm ngrok_tetris
 docker network rm ngrok-network-tetris
 docker network create -d bridge ngrok-network-tetris
 docker network connect ngrok-network-tetris tetris-deploy
