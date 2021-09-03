@@ -50,7 +50,7 @@ pipeline {
 					sh 'docker-compose up deploy-agent'
 					sh "chmod +x -R ${env.WORKSPACE}"
 					sh './SetupNgrokTetris.sh'
-					sh ( script: 'curl $(docker port ngrok_tetris 4040)/api/tunnels', returnStdout: true)
+					//sh ( script: 'curl $(docker port ngrok_tetris 4040)/api/tunnels', returnStdout: true)
 				}
 			}
 			post {
