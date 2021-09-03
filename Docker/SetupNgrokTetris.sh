@@ -1,5 +1,5 @@
 #!/bin/bash
-docker network rm ngrok-network
-docker network create -d bridge ngrok-network
-docker network connect ngrok-network tetris-deploy
-docker container run -d -p 4041:4040  --network ngrok-network --name ngrok_tetris wernight/ngrok ngrok http tetris-deploy:3000
+docker network rm ngrok-network-tetris
+docker network create -d bridge ngrok-network-tetris
+docker network connect ngrok-network-tetris tetris-deploy
+docker container run -d -p 4041:4040  --network ngrok-network-tetris --name ngrok_tetris wernight/ngrok ngrok http tetris-deploy:3000
