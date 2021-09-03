@@ -14,3 +14,11 @@ services:
    dockerfile: test
   depends_on:
   - build-agent
+ deploy-agent:
+  container_name: tetris-deploy
+  image: tetris-deploy:latest
+  build:
+   context: .
+   dockerfile: deploy
+  depends_on:
+  - test-agent
