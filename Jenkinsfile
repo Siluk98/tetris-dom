@@ -48,7 +48,8 @@ pipeline {
 				dir('Docker')
 				{
 					sh 'docker-compose up deploy-agent'
-					sh 'SetupNgrokTetris.bat'
+					sh './SetupNgrokTetris.sh'
+					sh ( script: 'curl $(docker port ngrok_tetris 4041)/api/tunnels', returnStdout: true)
 				}
 			}
 			post {
