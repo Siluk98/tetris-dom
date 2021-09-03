@@ -1,5 +1,4 @@
 FROM tetris-test:latest
 WORKDIR ./tetris-dom
 RUN npm start
-
 EXPOSE 3000
