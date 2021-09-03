@@ -1,4 +1,5 @@
 #!/bin/bash
+docker container stop ngrok_tetris
 docker container rm ngrok_tetris
 docker network rm ngrok-network-tetris
 docker network create -d bridge ngrok-network-tetris
